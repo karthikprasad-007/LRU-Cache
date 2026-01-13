@@ -15,6 +15,19 @@ class LRUCache {
                 next = NULL;
             }
         }
+
+        int capacity;
+        unordered_map<int, Node*> mp;
+
+        Node* head;
+        Node* tail;
+
+        void remove(Node* node) {
+            node->prev->next = node->next;
+            node->next->prev = node->prev;
+        } 
+
+
 };
 
 int main () {}
