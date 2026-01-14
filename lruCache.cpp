@@ -10,7 +10,7 @@ class LRUCache {
 
             Node(int k, int v) {
                 key = k;
-                v = value;
+                value = v;
                 prev = NULL;
                 next = NULL;
             }
@@ -33,11 +33,17 @@ class LRUCache {
             head->next->prev = node;
             head->next = node;
         }
-
-        void display(Node* head) {
-            Node* temp = head;
-            while(temp->next == NULL) temp = temp->next;
+    public:
+        LRUCache(int cap) {
+            capacity = cap;
+            head = new Node(0, 0);
+            tail = new Node(0, 0);
+            head->next = tail;
+            tail->prev = head;
         }
+
+
+
         
 };
 
