@@ -50,7 +50,7 @@ class LRUCache {
            return node->value;
         }
 
-        int put(int key, int value) {
+        void put(int key, int value) {
             if(mp.find(key)!=mp.end()) {
                 Node* node = mp[key];
                 node->value = value;
@@ -69,8 +69,15 @@ class LRUCache {
             }
         }
 
-
-        
+        void display() {
+            Node* curr = head->next;
+            std::cout << "Cache (MRU - LRU)\n";
+            while(curr!=tail) {
+                std::cout << "[" << curr->key << ":" << curr->value << "] ";
+                curr = curr->next;
+            }
+            std::cout << std::endl;
+        }
 };
 
 int main () {}
