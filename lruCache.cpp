@@ -34,7 +34,11 @@ class LRUCache {
             head->next = node;
         }
 
-
+        void display(Node* head) {
+            Node* temp = head;
+            while(temp->next == NULL) temp = temp->next;
+        }
+        
 };
 
 int main () {}
