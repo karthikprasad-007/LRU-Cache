@@ -81,7 +81,6 @@ class LRUCache {
 };
 
 int main () {
-
     LRUCache cache(3);
 
     cache.put(1, 10);
