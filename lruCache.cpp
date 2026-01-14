@@ -50,9 +50,24 @@ class LRUCache {
            return node->value;
         }
 
-        // int put(int key, int value) {
-
-        // }
+        int put(int key, int value) {
+            if(mp.find(key)!=mp.end()) {
+                Node* node = mp[key];
+                node->value = value;
+                remove(node);
+                insertFront(node);
+            } else {
+                if(mp.size()==capacity) {
+                    Node* lru = tail->prev;
+                    remove(lru);
+                    mp.erase(key);
+                    delete lru;
+                }
+                Node* node = new Node(key, value);
+                mp[key] = node;
+                insertFront(node);
+            }
+        }
 
 
         
