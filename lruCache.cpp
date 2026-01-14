@@ -47,7 +47,12 @@ class LRUCache {
            Node* node = mp[key]; 
            remove(node);
            insertFront(node);
+           return node->value;
         }
+
+        // int put(int key, int value) {
+
+        // }
 
 
         
