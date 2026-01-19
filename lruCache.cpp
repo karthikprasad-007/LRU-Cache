@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 
+//Class -> Contains constructor, functions for LRUCache
 class LRUCache {
     private:
         struct Node {
