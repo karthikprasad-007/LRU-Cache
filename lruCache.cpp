@@ -23,6 +23,7 @@ class LRUCache {
         Node* head;
         Node* tail;
 
+        //Remove LRU from DLL
         void remove(Node* node) {
             node->prev->next = node->next;
             node->next->prev = node->prev;
