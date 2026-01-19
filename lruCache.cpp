@@ -45,6 +45,7 @@ class LRUCache {
             tail->prev = head;
         }
 
+        //put and get uses map
         int get(int key) {
            if(mp.find(key)==mp.end()) return -1;
            Node* node = mp[key]; 
