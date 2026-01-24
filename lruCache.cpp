@@ -85,21 +85,58 @@ class LRUCache {
 };
 
 int main () {
-    LRUCache cache(3);
-
-    cache.put(1, 10);
-    cache.put(2, 20);
-    cache.display();
-
-    cache.get(1);
-    cache.display();
-
-    cache.put(3, 30);
-    cache.get(2);
-    cache.display();
-
-    cache.put(4, 40);
-    cache.display();
+    int capacity;
+    std::cout << "=== LRU Cache Manager ===" << std::endl;
+    std::cout << "Enter cache capacity: ";
+    std::cin >> capacity;
+    
+    LRUCache cache(capacity);
+    int choice;
+    
+    while(true) {
+        std::cout << "\n--- Menu ---" << std::endl;
+        std::cout << "1. PUT (Insert/Update)" << std::endl;
+        std::cout << "2. GET (Retrieve)" << std::endl;
+        std::cout << "3. DISPLAY Cache" << std::endl;
+        std::cout << "4. EXIT" << std::endl;
+        std::cout << "Enter your choice (1-4): ";
+        std::cin >> choice;
+        
+        switch(choice) {
+            case 1: {
+                int key, value;
+                std::cout << "Enter key: ";
+                std::cin >> key;
+                std::cout << "Enter value: ";
+                std::cin >> value;
+                cache.put(key, value);
+                std::cout << "✓ Added/Updated key " << key << " with value " << value << std::endl;
+                break;
+            }
+            case 2: {
+                int key;
+                std::cout << "Enter key to retrieve: ";
+                std::cin >> key;
+                int result = cache.get(key);
+                if(result == -1) {
+                    std::cout << "✗ Key " << key << " not found in cache!" << std::endl;
+                } else {
+                    std::cout << "✓ Value for key " << key << ": " << result << std::endl;
+                }
+                break;
+            }
+            case 3: {
+                cache.display();
+                break;
+            }
+            case 4: {
+                std::cout << "Exiting... Thank you!" << std::endl;
+                return 0;
+            }
+            default:
+                std::cout << "✗ Invalid choice! Please enter 1-4." << std::endl;
+        }
+    }
 
     return 0;
 }
