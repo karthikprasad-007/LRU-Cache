@@ -129,7 +129,10 @@ int main () {
                 cache.display();
                 break;
             }
-            
+            case 4: {
+                std::cout << "Exiting... Thank you!" << std::endl;
+                return 0;
+            }
             default:
                 std::cout << "✗ Invalid choice! Please enter 1-4." << std::endl;
         }
